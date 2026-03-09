@@ -445,8 +445,14 @@ export default function Contact() {
                   <div className="contact-items">
                     {CONTACT_INFO.map((item, i) => {
                       const IconComponent = item.icon;
+                      const isExternalLink = item.link.startsWith('http');
                       return (
-                        <a key={i} href={item.link} target="_blank" rel="noopener noreferrer" className="contact-item">
+                        <a 
+                          key={i} 
+                          href={item.link} 
+                          {...(isExternalLink && { target: "_blank", rel: "noopener noreferrer" })}
+                          className="contact-item"
+                        >
                           <div className="contact-icon" style={{ background: item.color }}>
                             <IconComponent />
                           </div>

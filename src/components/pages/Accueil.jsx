@@ -35,7 +35,7 @@ function useInView(threshold = 0.15) {
 
 // ABOUT_POINTS - Now dynamic, created in component with translations
 
-const WA_NUMBER = "0653633280";
+const WA_NUMBER = "212653633280";
 const WA_BASE   = `https://wa.me/${WA_NUMBER}`;
 
 /* ══════════════════════════════════════
