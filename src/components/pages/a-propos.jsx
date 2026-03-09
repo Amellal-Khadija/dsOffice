@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaCheckCircle, FaGlobe, FaHandshake, FaShieldAlt, FaUserTie, FaClock, FaAward, FaHeart, FaUsers, FaCalendarAlt } from 'react-icons/fa';
 import { useTheme } from '../../context/ThemeContext';
+import { useTranslation } from '../../hooks/useTranslation';
 import Img3 from "../../assets/images/img3.jpg";
 import Img4 from "../../assets/images/image4.jpg";
 
@@ -23,30 +24,8 @@ function useInView(threshold = 0.15) {
 }
 
 /* ══════════════════════════════════════
-   DATA
+   DATA - Now using translations
 ══════════════════════════════════════ */
-const VALUES = [
-  { icon: FaHandshake, title: "Confiance",        desc: "Nous bâtissons des relations durables basées sur la transparence et l'intégrité." },
-  { icon: FaShieldAlt, title: "Sécurité",         desc: "Vos documents et informations personnelles sont traités avec la plus grande confidentialité." },
-  { icon: FaUserTie,   title: "Professionnalisme",desc: "Une équipe expérimentée et qualifiée pour vous accompagner à chaque étape." },
-  { icon: FaHeart,     title: "Engagement",       desc: "Nous nous engageons à faire de votre projet international une réussite." },
-];
-
-const SERVICES_DETAILS = [
-  { icon: FaGlobe,        text: "Visa tourisme pour la France, l'Espagne et le Portugal" },
-  { icon: FaUsers,        text: "Visa études avec cours d'allemand dispensés localement à Casablanca" },
-  { icon: FaCheckCircle,  text: "Visa travail et regroupement familial" },
-  { icon: FaCheckCircle,  text: "Visas médicaux et traitements à l'étranger" },
-  { icon: FaGlobe,        text: "Visas Arabie Saoudite et Chine" },
-  { icon: FaCheckCircle,  text: "Conseil personnalisé et préparation complète du dossier" },
-];
-
-const STATS = [
-  { icon: FaClock,  num: "10+",  label: "Années d'expérience" },
-  { icon: FaUsers,  num: "500+", label: "Clients satisfaits"  },
-  { icon: FaAward,  num: "98%",  label: "Taux de réussite"    },
-  { icon: FaGlobe,  num: "6",    label: "Pays couverts"       },
-];
 
 /* ══════════════════════════════════════
    CSS — toutes les variables scopées sur
@@ -527,6 +506,31 @@ function Reveal({ children, delay = 0 }) {
 export default function APropos() {
   const { isDark } = useTheme();
   const darkClass  = isDark ? 'dark-mode' : '';
+  const t = useTranslation();
+
+  // Data arrays using translations
+  const VALUES = [
+    { icon: FaHandshake, title: t.about.values.trust.title, desc: t.about.values.trust.desc },
+    { icon: FaShieldAlt, title: t.about.values.security.title, desc: t.about.values.security.desc },
+    { icon: FaUserTie, title: t.about.values.professionalism.title, desc: t.about.values.professionalism.desc },
+    { icon: FaHeart, title: t.about.values.commitment.title, desc: t.about.values.commitment.desc },
+  ];
+
+  const SERVICES_DETAILS = [
+    { icon: FaGlobe, text: t.about.services.tourism },
+    { icon: FaUsers, text: t.about.services.studies },
+    { icon: FaCheckCircle, text: t.about.services.work },
+    { icon: FaCheckCircle, text: t.about.services.medical },
+    { icon: FaGlobe, text: t.about.services.saudiChina },
+    { icon: FaCheckCircle, text: t.about.services.consulting },
+  ];
+
+  const STATS = [
+    { icon: FaClock, num: "10+", label: t.about.stats.experience },
+    { icon: FaUsers, num: "500+", label: t.about.stats.clients },
+    { icon: FaAward, num: "98%", label: t.about.stats.success },
+    { icon: FaGlobe, num: "6", label: t.about.stats.countries },
+  ];
 
   return (
     <>
@@ -536,14 +540,12 @@ export default function APropos() {
         {/* ══ HERO ══ */}
         <section className="apropos-hero">
           <div className="hero-content">
-            <div className="hero-tag">Qui sommes-nous</div>
+            <div className="hero-tag">{t.about.hero.tag}</div>
             <h1 className="hero-title">
-              DS Office — <span className="accent">Plus de 10 ans</span> à votre service
+              {t.about.hero.title} <span className="accent">{t.about.hero.titleAccent}</span> {t.about.hero.titleEnd}
             </h1>
             <p className="hero-subtitle">
-              DS OFFICE propose un accompagnement complet pour toutes vos demandes de visa, 
-              avec un conseil personnalisé et un soutien professionnel pour faciliter vos 
-              démarches administratives et rendre l'obtention de votre visa simple et sécurisée.
+              {t.about.hero.description}
             </p>
 
             <div className="stats-bar">
@@ -575,23 +577,16 @@ export default function APropos() {
 
             <Reveal delay={150}>
               <div className="story-content">
-                <div className="section-tag">Notre histoire</div>
-                <h3>Une expertise reconnue depuis plus d'une décennie</h3>
+                <div className="section-tag">{t.about.story.tag}</div>
+                <h3>{t.about.story.title}</h3>
                 <p>
-                  Fondée il y a plus de 10 ans à Casablanca, DS Office est devenue 
-                  une référence dans l'accompagnement des démarches de visa et 
-                  l'assistance administrative pour vos voyages à l'étranger.
+                  {t.about.story.paragraph1}
                 </p>
                 <p>
-                  Notre équipe passionnée et expérimentée met son expertise au service 
-                  de vos besoins, que ce soit pour le tourisme, les études, le travail 
-                  ou le regroupement familial. Nous vous guidons à chaque étape avec 
-                  professionnalisme et transparence.
+                  {t.about.story.paragraph2}
                 </p>
                 <p>
-                  Grâce à notre connaissance approfondie des procédures consulaires et 
-                  notre réseau étendu, nous maximisons vos chances d'obtention et 
-                  simplifions vos démarches administratives.
+                  {t.about.story.paragraph3}
                 </p>
               </div>
             </Reveal>
@@ -601,12 +596,12 @@ export default function APropos() {
         {/* ══ NOS VALEURS ══ */}
         <section className="apropos-section ap-bg-gray">
           <div className="section-title-center">
-            <div className="section-tag">Nos valeurs</div>
+            <div className="section-tag">{t.about.valuesSection.tag}</div>
             <h2 className="section-title">
-              Ce qui nous <span className="accent">distingue</span>
+              {t.about.valuesSection.title} <span className="accent">{t.about.valuesSection.titleAccent}</span>
             </h2>
             <p className="section-desc">
-              Des valeurs fortes qui guident notre travail quotidien et notre relation avec nos clients.
+              {t.about.valuesSection.description}
             </p>
           </div>
 
@@ -629,13 +624,12 @@ export default function APropos() {
         {/* ══ NOS SERVICES ══ */}
         <section className="apropos-section ap-bg-white">
           <div className="section-title-center">
-            <div className="section-tag">Nos services</div>
+            <div className="section-tag">{t.about.servicesSection.tag}</div>
             <h2 className="section-title">
-              Un accompagnement <span className="accent">complet</span>
+              {t.about.servicesSection.title} <span className="accent">{t.about.servicesSection.titleAccent}</span>
             </h2>
             <p className="section-desc">
-              De la préparation du dossier jusqu'à l'obtention de votre visa, 
-              nous couvrons tous vos besoins.
+              {t.about.servicesSection.description}
             </p>
           </div>
 
@@ -658,14 +652,13 @@ export default function APropos() {
         <section className="cta-section">
           <Reveal>
             <div className="cta-content">
-              <h2>Besoin d'un visa pour voyager ?</h2>
+              <h2>{t.about.cta.title}</h2>
               <p>
-                Contactez-nous dès aujourd'hui pour un conseil personnalisé et 
-                découvrez comment nous pouvons faciliter vos démarches de visa.
+                {t.about.cta.description}
               </p>
               <Link to="/contact" className="cta-btn">
                 <FaCalendarAlt />
-                <span>Nous contacter</span>
+                <span>{t.about.cta.button}</span>
               </Link>
             </div>
           </Reveal>
