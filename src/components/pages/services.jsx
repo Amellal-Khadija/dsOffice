@@ -6,6 +6,7 @@ import {
   FaCalendarAlt, FaArrowRight
 } from 'react-icons/fa';
 import { useTheme } from '../../context/ThemeContext';
+import { useTranslation } from '../../hooks/useTranslation';
 
 /* ══════════════════════════════════════
    HOOK — Scroll reveal
@@ -25,65 +26,8 @@ function useInView(threshold = 0.15) {
 }
 
 /* ══════════════════════════════════════
-   DATA
+   DATA - Now using translations
 ══════════════════════════════════════ */
-const SERVICES = [
-  {
-    icon: FaPlane,
-    title: "Visa Tourisme",
-    desc: "Découvrez l'Europe en toute sérénité. Nous préparons votre dossier Schengen pour la France, l'Espagne et le Portugal.",
-    countries: ["France", "Espagne", "Portugal"],
-    features: ["Dossier complet préparé", "Prise de rendez-vous consulaire", "Suivi personnalisé", "Assistance formulaires"],
-  },
-  {
-    icon: FaGraduationCap,
-    title: "Visa Études & Langues",
-    desc: "Poursuivez vos études en Europe avec nos cours d'allemand dispensés à Casablanca. Visa études Allemagne et France.",
-    countries: ["Allemagne", "France", "Espagne"],
-    features: ["Inscription universitaire", "Cours d'allemand à Casablanca", "Attestation d'hébergement", "Assurance étudiante"],
-  },
-  {
-    icon: FaBriefcase,
-    title: "Visa Travail",
-    desc: "Intégrez le marché du travail européen avec un dossier professionnel solide et bien préparé.",
-    countries: ["France", "Portugal", "Espagne"],
-    features: ["Contrat de travail vérifié", "Documents légalisés", "Autorisation de travail", "Accompagnement complet"],
-  },
-  {
-    icon: FaUsers,
-    title: "Regroupement Familial",
-    desc: "Rejoignez votre famille en Europe. Tous les documents nécessaires préparés avec soin.",
-    countries: ["France", "Espagne", "Portugal"],
-    features: ["Actes d'état civil", "Justificatifs de ressources", "Preuves de lien familial", "Dossier complet"],
-  },
-  {
-    icon: FaHospital,
-    title: "Visa Médical",
-    desc: "Accédez aux soins médicaux à l'étranger. Traitement urgent et rendez-vous médicaux organisés.",
-    countries: ["France", "Allemagne"],
-    features: ["Rendez-vous hôpital", "Dossier médical traduit", "Prise en charge garantie", "Traitement urgent"],
-  },
-  {
-    icon: FaGlobe,
-    title: "Arabie Saoudite & Chine",
-    desc: "Voyage d'affaires, tourisme ou pèlerinage. Visa Arabie Saoudite et Chine avec assistance complète.",
-    countries: ["Arabie Saoudite", "Chine"],
-    features: ["Visa touristique", "Visa d'affaires", "Visa pèlerinage (Omra)", "Documents légalisés"],
-  },
-];
-
-const PROCESS_STEPS = [
-  { icon: FaFileAlt,     title: "1. Consultation", desc: "Évaluation de votre dossier et conseil personnalisé" },
-  { icon: FaPassport,    title: "2. Préparation",  desc: "Collecte et vérification de tous les documents" },
-  { icon: FaCalendarAlt, title: "3. Rendez-vous",  desc: "Prise de rendez-vous et accompagnement" },
-  { icon: FaCheckCircle, title: "4. Obtention",    desc: "Suivi du dossier jusqu'à l'obtention du visa" },
-];
-
-const ADVANTAGES = [
-  { icon: FaShieldAlt,   title: "10+ ans d'expérience", desc: "Une expertise reconnue dans les démarches de visa" },
-  { icon: FaClock,       title: "Traitement rapide",     desc: "Optimisation des délais pour votre visa" },
-  { icon: FaCheckCircle, title: "98% de réussite",       desc: "Un taux d'obtention exceptionnel" },
-];
 
 /* ══════════════════════════════════════
    CSS — scopé sur .services-root
@@ -454,6 +398,96 @@ function Reveal({ children, delay = 0 }) {
 export default function Services() {
   const { isDark } = useTheme();
   const darkClass  = isDark ? 'dark-mode' : '';
+  const t = useTranslation();
+
+  // Data arrays using translations
+  const SERVICES = [
+    {
+      icon: FaPlane,
+      title: t.services.servicesGrid.tourism.title,
+      desc: t.services.servicesGrid.tourism.desc,
+      countries: [t.home.countries.france, t.home.countries.spain, t.home.countries.portugal],
+      features: [
+        t.services.servicesGrid.tourism.features.complete,
+        t.services.servicesGrid.tourism.features.appointment,
+        t.services.servicesGrid.tourism.features.tracking,
+        t.services.servicesGrid.tourism.features.forms
+      ],
+    },
+    {
+      icon: FaGraduationCap,
+      title: t.services.servicesGrid.studies.title,
+      desc: t.services.servicesGrid.studies.desc,
+      countries: [t.home.countries.germany, t.home.countries.france, t.home.countries.spain],
+      features: [
+        t.services.servicesGrid.studies.features.enrollment,
+        t.services.servicesGrid.studies.features.germanCourses,
+        t.services.servicesGrid.studies.features.accommodation,
+        t.services.servicesGrid.studies.features.insurance
+      ],
+    },
+    {
+      icon: FaBriefcase,
+      title: t.services.servicesGrid.work.title,
+      desc: t.services.servicesGrid.work.desc,
+      countries: [t.home.countries.france, t.home.countries.portugal, t.home.countries.spain],
+      features: [
+        t.services.servicesGrid.work.features.contract,
+        t.services.servicesGrid.work.features.legalized,
+        t.services.servicesGrid.work.features.authorization,
+        t.services.servicesGrid.work.features.support
+      ],
+    },
+    {
+      icon: FaUsers,
+      title: t.services.servicesGrid.family.title,
+      desc: t.services.servicesGrid.family.desc,
+      countries: [t.home.countries.france, t.home.countries.spain, t.home.countries.portugal],
+      features: [
+        t.services.servicesGrid.family.features.civilStatus,
+        t.services.servicesGrid.family.features.resources,
+        t.services.servicesGrid.family.features.proofs,
+        t.services.servicesGrid.family.features.complete
+      ],
+    },
+    {
+      icon: FaHospital,
+      title: t.services.servicesGrid.medical.title,
+      desc: t.services.servicesGrid.medical.desc,
+      countries: [t.home.countries.france, t.home.countries.germany],
+      features: [
+        t.services.servicesGrid.medical.features.hospital,
+        t.services.servicesGrid.medical.features.translated,
+        t.services.servicesGrid.medical.features.coverage,
+        t.services.servicesGrid.medical.features.urgent
+      ],
+    },
+    {
+      icon: FaGlobe,
+      title: t.services.servicesGrid.saudiChina.title,
+      desc: t.services.servicesGrid.saudiChina.desc,
+      countries: [t.home.countries.saudi, t.home.countries.china],
+      features: [
+        t.services.servicesGrid.saudiChina.features.tourist,
+        t.services.servicesGrid.saudiChina.features.business,
+        t.services.servicesGrid.saudiChina.features.pilgrimage,
+        t.services.servicesGrid.saudiChina.features.legalized
+      ],
+    },
+  ];
+
+  const PROCESS_STEPS = [
+    { icon: FaFileAlt, title: t.services.process.step1.title, desc: t.services.process.step1.desc },
+    { icon: FaPassport, title: t.services.process.step2.title, desc: t.services.process.step2.desc },
+    { icon: FaCalendarAlt, title: t.services.process.step3.title, desc: t.services.process.step3.desc },
+    { icon: FaCheckCircle, title: t.services.process.step4.title, desc: t.services.process.step4.desc },
+  ];
+
+  const ADVANTAGES = [
+    { icon: FaShieldAlt, title: t.services.advantages.experience.title, desc: t.services.advantages.experience.desc },
+    { icon: FaClock, title: t.services.advantages.fast.title, desc: t.services.advantages.fast.desc },
+    { icon: FaCheckCircle, title: t.services.advantages.success.title, desc: t.services.advantages.success.desc },
+  ];
 
   return (
     <>
@@ -463,13 +497,12 @@ export default function Services() {
         {/* ══ HERO ══ */}
         <section className="services-hero">
           <div className="hero-content">
-            <div className="hero-tag">Nos Services</div>
+            <div className="hero-tag">{t.services.hero.tag}</div>
             <h1 className="hero-title">
-              Tous types de <span className="accent">visa</span>
+              {t.services.hero.title} <span className="accent">{t.services.hero.titleAccent}</span> {t.services.hero.titleEnd}
             </h1>
             <p className="hero-subtitle">
-              DS Office vous accompagne dans toutes vos démarches de visa avec une expertise 
-              de plus de 10 ans. Un service personnalisé pour chaque type de visa.
+              {t.services.hero.description}
             </p>
 
             <div className="advantages-bar">
@@ -492,13 +525,12 @@ export default function Services() {
         {/* ══ SERVICES ══ */}
         <section className="services-section sv-bg-gray">
           <div className="section-header">
-            <div className="section-tag">Nos prestations</div>
+            <div className="section-tag">{t.services.sectionHeader.tag}</div>
             <h2 className="section-title">
-              Un accompagnement <span className="accent">sur mesure</span>
+              {t.services.sectionHeader.title} <span className="accent">{t.services.sectionHeader.titleAccent}</span>
             </h2>
             <p className="section-desc">
-              De la préparation du dossier jusqu'à l'obtention de votre visa, 
-              nous prenons en charge toutes les étapes pour faciliter vos démarches.
+              {t.services.sectionHeader.description}
             </p>
           </div>
 
@@ -538,13 +570,12 @@ export default function Services() {
         {/* ══ PROCESSUS ══ */}
         <section className="services-section sv-bg-white">
           <div className="section-header">
-            <div className="section-tag">Notre processus</div>
+            <div className="section-tag">{t.services.processSection.tag}</div>
             <h2 className="section-title">
-              Comment nous <span className="accent">travaillons</span>
+              {t.services.processSection.title} <span className="accent">{t.services.processSection.titleAccent}</span>
             </h2>
             <p className="section-desc">
-              Un processus simple et transparent en 4 étapes pour vous garantir 
-              les meilleures chances d'obtention de votre visa.
+              {t.services.processSection.description}
             </p>
           </div>
 
@@ -568,14 +599,13 @@ export default function Services() {
         <section className="cta-section">
           <Reveal>
             <div className="cta-content">
-              <h2>Prêt à commencer vos démarches ?</h2>
+              <h2>{t.services.cta.title}</h2>
               <p>
-                Prenez rendez-vous dès aujourd'hui pour bénéficier de notre expertise 
-                et maximiser vos chances d'obtention de visa.
+                {t.services.cta.description}
               </p>
               <Link to="/rendez-vous" className="cta-btn">
                 <FaCalendarAlt />
-                <span>Prendre rendez-vous</span>
+                <span>{t.services.cta.button}</span>
                 <FaArrowRight />
               </Link>
             </div>

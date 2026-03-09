@@ -108,10 +108,11 @@ export const fr = {
   // About Page
   about: {
     hero: {
-      tag: "Notre histoire",
-      title: "Une décennie d'",
-      titleAccent: "excellence",
-      description: "Depuis plus de 10 ans, DS Office accompagne avec succès des centaines de clients dans leurs projets internationaux."
+      tag: "Qui sommes-nous",
+      title: "DS Office —",
+      titleAccent: "Plus de 10 ans",
+      titleEnd: "à votre service",
+      description: "DS OFFICE propose un accompagnement complet pour toutes vos demandes de visa, avec un conseil personnalisé et un soutien professionnel pour faciliter vos démarches administratives et rendre l'obtention de votre visa simple et sécurisée."
     },
     stats: {
       experience: "Années d'expérience",
@@ -120,18 +121,19 @@ export const fr = {
       countries: "Pays couverts"
     },
     story: {
-      tag: "Notre parcours",
-      title: "Une passion au",
-      titleAccent: "service de vos projets",
-      p1: "Fondée à Casablanca, DS Office est née d'une passion pour l'accompagnement administratif et le conseil en mobilité internationale.",
-      p2: "Notre équipe d'experts, forte de plus de 10 ans d'expérience, maîtrise tous les aspects des démarches de visa pour l'Europe, l'Arabie Saoudite et la Chine.",
-      p3: "Nous croyons que chaque projet est unique. C'est pourquoi nous offrons un accompagnement personnalisé et adapté à votre situation.",
-      cta: "Contactez-nous"
+      tag: "Notre histoire",
+      title: "Une expertise reconnue depuis plus d'une décennie",
+      paragraph1: "Fondée il y a plus de 10 ans à Casablanca, DS Office est devenue une référence dans l'accompagnement des démarches de visa et l'assistance administrative pour vos voyages à l'étranger.",
+      paragraph2: "Notre équipe passionnée et expérimentée met son expertise au service de vos besoins, que ce soit pour le tourisme, les études, le travail ou le regroupement familial. Nous vous guidons à chaque étape avec professionnalisme et transparence.",
+      paragraph3: "Grâce à notre connaissance approfondie des procédures consulaires et notre réseau étendu, nous maximisons vos chances d'obtention et simplifions vos démarches administratives."
     },
-    values: {
+    valuesSection: {
       tag: "Nos valeurs",
       title: "Ce qui nous",
-      titleAccent: "définit",
+      titleAccent: "distingue",
+      description: "Des valeurs fortes qui guident notre travail quotidien et notre relation avec nos clients."
+    },
+    values: {
       trust: {
         title: "Confiance",
         desc: "Nous bâtissons des relations durables basées sur la transparence et l'intégrité."
@@ -149,18 +151,24 @@ export const fr = {
         desc: "Nous nous engageons à faire de votre projet international une réussite."
       }
     },
-    servicesDetail: {
+    servicesSection: {
       tag: "Nos services",
       title: "Un accompagnement",
       titleAccent: "complet",
-      items: {
-        tourism: "Visa tourisme pour la France, l'Espagne et le Portugal",
-        studies: "Visa études avec cours d'allemand dispensés localement à Casablanca",
-        work: "Visa travail et regroupement familial",
-        medical: "Visas médicaux et traitements à l'étranger",
-        saudiChina: "Visas Arabie Saoudite et Chine",
-        consulting: "Conseil personnalisé et préparation complète du dossier"
-      }
+      description: "De la préparation du dossier jusqu'à l'obtention de votre visa, nous couvrons tous vos besoins."
+    },
+    services: {
+      tourism: "Visa tourisme pour la France, l'Espagne et le Portugal",
+      studies: "Visa études avec cours d'allemand dispensés localement à Casablanca",
+      work: "Visa travail et regroupement familial",
+      medical: "Visas médicaux et traitements à l'étranger",
+      saudiChina: "Visas Arabie Saoudite et Chine",
+      consulting: "Conseil personnalisé et préparation complète du dossier"
+    },
+    cta: {
+      title: "Besoin d'un visa pour voyager ?",
+      description: "Contactez-nous dès aujourd'hui pour un conseil personnalisé et découvrez comment nous pouvons faciliter vos démarches de visa.",
+      button: "Nous contacter"
     }
   },
 
@@ -270,6 +278,23 @@ export const fr = {
         title: "98% de réussite",
         desc: "Un taux d'obtention exceptionnel"
       }
+    },
+    cta: {
+      title: "Prêt à commencer vos démarches ?",
+      description: "Prenez rendez-vous dès aujourd'hui pour bénéficier de notre expertise et maximiser vos chances d'obtention de visa.",
+      button: "Prendre rendez-vous"
+    },
+    sectionHeader: {
+      tag: "Nos prestations",
+      title: "Un accompagnement",
+      titleAccent: "sur mesure",
+      description: "De la préparation du dossier jusqu'à l'obtention de votre visa, nous prenons en charge toutes les étapes pour faciliter vos démarches."
+    },
+    processSection: {
+      tag: "Notre processus",
+      title: "Comment nous",
+      titleAccent: "travaillons",
+      description: "Un processus simple et transparent en 4 étapes pour vous garantir les meilleures chances d'obtention de votre visa."
     }
   },
 
@@ -277,40 +302,60 @@ export const fr = {
   contact: {
     hero: {
       tag: "Contactez-nous",
-      title: "Parlons de votre",
-      titleAccent: "projet",
-      description: "Notre équipe est à votre disposition pour répondre à toutes vos questions. Contactez-nous par téléphone, WhatsApp, email ou visitez notre bureau à Casablanca."
+      title: "Nous sommes à votre",
+      titleAccent: "écoute",
+      description: "Notre équipe est disponible pour répondre à toutes vos questions et vous accompagner dans vos démarches de visa."
     },
-    info: {
+    infoSection: {
+      title: "Informations de contact",
       phone: "Téléphone",
       whatsapp: "WhatsApp",
       email: "Email",
       instagram: "Instagram"
     },
-    form: {
-      title: "Envoyez-nous un message",
-      name: "Nom complet",
-      phone: "Téléphone",
-      email: "Email",
-      visaType: "Type de visa",
-      selectVisa: "Sélectionnez un type de visa",
-      message: "Votre message",
-      messagePlaceholder: "Décrivez votre projet et vos besoins...",
-      send: "Envoyer via WhatsApp"
+    addressSection: {
+      title: "Notre adresse",
+      label: "DS Office Casablanca",
+      street: "36, Boulevard d'Anfa",
+      building: "Résidence ANAFE A, 7ème étage, Appt 75",
+      city: "Casablanca, Morocco"
     },
-    office: {
-      title: "Notre bureau",
-      address: "Adresse",
-      addressLine1: "36, Boulevard d'Anfa",
-      addressLine2: "Résidence ANAFE A, 7ème étage, Appt 75",
-      addressLine3: "Casablanca, Maroc",
-      hours: "Horaires d'ouverture",
+    hoursSection: {
+      title: "Horaires d'ouverture",
       weekdays: "Lundi - Vendredi",
       weekdaysHours: "9h00 - 18h00",
       saturday: "Samedi",
       saturdayHours: "9h00 - 13h00",
       sunday: "Dimanche",
       sundayHours: "Fermé"
+    },
+    formSection: {
+      title: "Envoyez-nous un message",
+      description: "Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.",
+      lastName: "Nom",
+      firstName: "Prénom",
+      email: "Email",
+      phone: "Téléphone",
+      visaType: "Type de visa",
+      message: "Message",
+      required: "*",
+      lastNamePlaceholder: "Votre nom",
+      firstNamePlaceholder: "Votre prénom",
+      emailPlaceholder: "votre@email.com",
+      phonePlaceholder: "06 XX XX XX XX",
+      visaTypePlaceholder: "Sélectionnez le type de visa",
+      messagePlaceholder: "Décrivez votre projet et vos besoins...",
+      submitButton: "Envoyer le message",
+      visaTypes: {
+        tourism: "Visa Tourisme",
+        studies: "Visa Études & Langues",
+        work: "Visa Travail",
+        family: "Regroupement Familial",
+        medical: "Visa Médical",
+        saudi: "Arabie Saoudite",
+        china: "Chine",
+        other: "Autre demande"
+      }
     }
   },
 
@@ -320,7 +365,7 @@ export const fr = {
       tag: "Prise de rendez-vous",
       title: "Réservez votre",
       titleAccent: "consultation",
-      description: "Prenez rendez-vous avec nos experts pour une consultation personnalisée. Nous analyserons votre dossier et vous conseillerons la meilleure stratégie."
+      description: "Rencontrez nos experts en visa pour une analyse personnalisée de votre dossier. Prenez rendez-vous en quelques clics et maximisez vos chances de réussite."
     },
     benefits: {
       consultation: {
@@ -340,19 +385,35 @@ export const fr = {
         desc: "Évitez les erreurs et les allers-retours inutiles"
       }
     },
+    formSection: {
+      tag: "Formulaire de rendez-vous",
+      title: "Planifiez votre",
+      titleAccent: "consultation",
+      description: "Remplissez le formulaire ci-dessous et nous vous confirmerons votre rendez-vous dans les plus brefs délais."
+    },
+    infoBox: {
+      title: "Notre bureau à Casablanca",
+      address: "36, Boulevard d'Anfa, Résidence ANAFE A, 7ème étage, Appt 75",
+      hours: "Horaires : Lun-Ven 9h-18h | Sam 9h-13h"
+    },
     form: {
-      title: "Formulaire de rendez-vous",
-      name: "Nom complet",
-      phone: "Numéro de téléphone",
+      lastName: "Nom",
+      firstName: "Prénom",
       email: "Email",
-      visaType: "Type de visa souhaité",
-      selectVisa: "Sélectionnez le type de visa",
-      date: "Date souhaitée",
-      time: "Heure souhaitée",
-      selectTime: "Sélectionnez l'heure",
-      message: "Message (optionnel)",
-      messagePlaceholder: "Décrivez brièvement votre situation...",
-      confirm: "Confirmer le rendez-vous",
+      phone: "Téléphone",
+      visaType: "Type de visa",
+      date: "Date préférée",
+      time: "Heure préférée",
+      message: "Message",
+      required: "*",
+      lastNamePlaceholder: "Votre nom",
+      firstNamePlaceholder: "Votre prénom",
+      emailPlaceholder: "votre@email.com",
+      phonePlaceholder: "06 XX XX XX XX",
+      visaTypePlaceholder: "Sélectionnez le type de visa",
+      timePlaceholder: "Choisir un créneau",
+      messagePlaceholder: "Décrivez brièvement votre projet (destination, durée du séjour, situation actuelle...)",
+      submitButton: "Confirmer le rendez-vous",
       visaTypes: {
         tourism: "Visa Tourisme",
         studies: "Visa Études & Langues",
@@ -362,12 +423,22 @@ export const fr = {
         saudi: "Arabie Saoudite",
         china: "Chine",
         other: "Autre demande"
+      },
+      timeSlots: {
+        slot1: "9h00 - 10h00",
+        slot2: "10h00 - 11h00",
+        slot3: "11h00 - 12h00",
+        slot4: "12h00 - 13h00",
+        slot5: "14h00 - 15h00",
+        slot6: "15h00 - 16h00",
+        slot7: "16h00 - 17h00",
+        slot8: "17h00 - 18h00"
       }
     },
-    whyUs: {
-      tag: "Pourquoi nous choisir",
-      title: "L'excellence à chaque",
-      titleAccent: "étape"
+    contactCta: {
+      title: "Besoin d'une réponse immédiate ?",
+      description: "Contactez-nous directement par téléphone ou WhatsApp pour toute question urgente.",
+      whatsapp: "WhatsApp"
     }
   },
 
@@ -392,7 +463,7 @@ export const fr = {
       contact: "Contact"
     },
     services: {
-      title: "Services",
+      title: "Nos services",
       tourism: "Visa Tourisme",
       studies: "Visa Études & Langues",
       work: "Visa Travail",
@@ -400,18 +471,24 @@ export const fr = {
       medical: "Visa Médical",
       saudiChina: "Arabie Saoudite & Chine"
     },
-    contact: {
+    contactSection: {
       title: "Contact",
-      address: "36 Bd d'Anfa, Résidence ANAFE A",
-      cityFloor: "7ème étage, Appt 75, Casablanca",
-      phone: "Téléphone",
-      whatsapp: "WhatsApp",
-      email: "Email"
+      phoneLabel: "Téléphone",
+      whatsappLabel: "WhatsApp",
+      emailLabel: "Email",
+      addressLabel: "Adresse",
+      hoursLabel: "Horaires",
+      addressLine1: "36, Boulevard d'Anfa",
+      addressLine2: "Résidence ANAFE A, 7ème étage",
+      addressLine3: "Casablanca, Morocco",
+      weekdays: "Lun-Ven: 9h-18h",
+      saturday: "Sam: 9h-13h"
+    },
+    about: {
+      tagline: "Plus de 10 ans d'expérience dans l'accompagnement de vos démarches de visa. L'élite de l'accompagnement avec un taux de réussite de 98%."
     },
     bottom: {
-      copyright: "© 2024 DS Office. Tous droits réservés.",
-      privacy: "Politique de confidentialité",
-      terms: "Conditions d'utilisation"
+      copyright: "Tous droits réservés."
     }
   }
 };

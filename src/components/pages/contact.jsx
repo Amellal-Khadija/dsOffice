@@ -4,6 +4,7 @@ import {
   FaClock, FaBriefcase, FaCheckCircle, FaPaperPlane
 } from 'react-icons/fa';
 import { useTheme } from '../../context/ThemeContext';
+import { useTranslation } from '../../hooks/useTranslation';
 
 /* ══════════════════════════════════════
    HOOK — Scroll reveal
@@ -23,14 +24,8 @@ function useInView(threshold = 0.15) {
 }
 
 /* ══════════════════════════════════════
-   DATA
+   DATA - Now using translations
 ══════════════════════════════════════ */
-const CONTACT_INFO = [
-  { icon: FaPhone,     title: "Téléphone", value: "06 53 27 72 03",    link: "tel:+212653277203",                               color: "#E31E24" },
-  { icon: FaWhatsapp,  title: "WhatsApp",  value: "06 53 63 32 80",    link: "https://wa.me/212653633280",                      color: "#25D366" },
-  { icon: FaEnvelope,  title: "Email",     value: "info@dsoffice.ma",  link: "mailto:info@dsoffice.ma",                         color: "#0055A4" },
-  { icon: FaInstagram, title: "Instagram", value: "@ds.office.maroc",  link: "https://www.instagram.com/ds.office.maroc/",      color: "#E4405F" },
-];
 
 const ADDRESS = {
   street: "36, Boulevard d'Anfa",
@@ -38,12 +33,6 @@ const ADDRESS = {
   city: "Casablanca, Morocco",
   coordinates: { lat: 33.595261, lng: -7.627780 },
 };
-
-const OFFICE_HOURS = [
-  { day: "Lundi - Vendredi", hours: "9h00 - 18h00" },
-  { day: "Samedi",           hours: "9h00 - 13h00" },
-  { day: "Dimanche",         hours: "Fermé"         },
-];
 
 /* ══════════════════════════════════════
    CSS — scopé sur .contact-root
@@ -393,6 +382,21 @@ function Reveal({ children, delay = 0 }) {
 export default function Contact() {
   const { isDark } = useTheme();
   const darkClass  = isDark ? 'dark-mode' : '';
+  const t = useTranslation();
+
+  // Data arrays using translations
+  const CONTACT_INFO = [
+    { icon: FaPhone,     title: t.contact.infoSection.phone,     value: "06 53 27 72 03",    link: "tel:+212653277203",                          color: "#E31E24" },
+    { icon: FaWhatsapp,  title: t.contact.infoSection.whatsapp,  value: "06 53 63 32 80",    link: "https://wa.me/212653633280",                 color: "#25D366" },
+    { icon: FaEnvelope,  title: t.contact.infoSection.email,     value: "info@dsoffice.ma",  link: "mailto:info@dsoffice.ma",                    color: "#0055A4" },
+    { icon: FaInstagram, title: t.contact.infoSection.instagram, value: "@ds.office.maroc",  link: "https://www.instagram.com/ds.office.maroc/", color: "#E4405F" },
+  ];
+
+  const OFFICE_HOURS = [
+    { day: t.contact.hoursSection.weekdays, hours: t.contact.hoursSection.weekdaysHours },
+    { day: t.contact.hoursSection.saturday, hours: t.contact.hoursSection.saturdayHours },
+    { day: t.contact.hoursSection.sunday,   hours: t.contact.hoursSection.sundayHours },
+  ];
 
   const [formData, setFormData] = useState({
     nom: '', prenom: '', email: '', telephone: '', typeVisa: '', message: ''
@@ -417,13 +421,12 @@ export default function Contact() {
         {/* ══ HERO ══ */}
         <section className="contact-hero">
           <div className="hero-content">
-            <div className="hero-tag">Contactez-nous</div>
+            <div className="hero-tag">{t.contact.hero.tag}</div>
             <h1 className="hero-title">
-              Nous sommes à votre <span className="accent">écoute</span>
+              {t.contact.hero.title} <span className="accent">{t.contact.hero.titleAccent}</span>
             </h1>
             <p className="hero-subtitle">
-              Notre équipe est disponible pour répondre à toutes vos questions 
-              et vous accompagner dans vos démarches de visa.
+              {t.contact.hero.description}
             </p>
           </div>
         </section>
@@ -438,7 +441,7 @@ export default function Contact() {
               {/* Contact Info */}
               <Reveal>
                 <div className="info-section">
-                  <h3><FaBriefcase /> Informations de contact</h3>
+                  <h3><FaBriefcase /> {t.contact.infoSection.title}</h3>
                   <div className="contact-items">
                     {CONTACT_INFO.map((item, i) => {
                       const IconComponent = item.icon;
@@ -461,7 +464,7 @@ export default function Contact() {
               {/* Address */}
               <Reveal delay={100}>
                 <div className="info-section">
-                  <h3><FaMapMarkerAlt /> Notre adresse</h3>
+                  <h3><FaMapMarkerAlt /> {t.contact.addressSection.title}</h3>
                   <a
                     href={`https://www.google.com/maps?q=${ADDRESS.coordinates.lat},${ADDRESS.coordinates.lng}`}
                     target="_blank" rel="noopener noreferrer"
@@ -469,10 +472,10 @@ export default function Contact() {
                   >
                     <div className="address-icon"><FaMapMarkerAlt /></div>
                     <div className="address-text">
-                      <div className="label">DS Office Casablanca</div>
-                      <p>{ADDRESS.street}</p>
-                      <p>{ADDRESS.building}</p>
-                      <p>{ADDRESS.city}</p>
+                      <div className="label">{t.contact.addressSection.label}</div>
+                      <p>{t.contact.addressSection.street}</p>
+                      <p>{t.contact.addressSection.building}</p>
+                      <p>{t.contact.addressSection.city}</p>
                     </div>
                   </a>
                 </div>
@@ -481,7 +484,7 @@ export default function Contact() {
               {/* Hours */}
               <Reveal delay={200}>
                 <div className="info-section">
-                  <h3><FaClock /> Horaires d'ouverture</h3>
+                  <h3><FaClock /> {t.contact.hoursSection.title}</h3>
                   <div className="hours-list">
                     {OFFICE_HOURS.map((item, i) => (
                       <div key={i} className="hour-item">
@@ -498,54 +501,54 @@ export default function Contact() {
             {/* FORM PANEL */}
             <Reveal delay={100}>
               <div className="form-panel">
-                <h3>Envoyez-nous un message</h3>
-                <p>Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.</p>
+                <h3>{t.contact.formSection.title}</h3>
+                <p>{t.contact.formSection.description}</p>
 
                 <form className="contact-form" onSubmit={handleSubmit}>
                   <div className="form-row">
                     <div className="form-group">
-                      <label>Nom <span className="required">*</span></label>
-                      <input type="text" name="nom" value={formData.nom} onChange={handleChange} placeholder="Votre nom" required />
+                      <label>{t.contact.formSection.lastName} <span className="required">{t.contact.formSection.required}</span></label>
+                      <input type="text" name="nom" value={formData.nom} onChange={handleChange} placeholder={t.contact.formSection.lastNamePlaceholder} required />
                     </div>
                     <div className="form-group">
-                      <label>Prénom <span className="required">*</span></label>
-                      <input type="text" name="prenom" value={formData.prenom} onChange={handleChange} placeholder="Votre prénom" required />
+                      <label>{t.contact.formSection.firstName} <span className="required">{t.contact.formSection.required}</span></label>
+                      <input type="text" name="prenom" value={formData.prenom} onChange={handleChange} placeholder={t.contact.formSection.firstNamePlaceholder} required />
                     </div>
                   </div>
 
                   <div className="form-row">
                     <div className="form-group">
-                      <label>Email <span className="required">*</span></label>
-                      <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="votre@email.com" required />
+                      <label>{t.contact.formSection.email} <span className="required">{t.contact.formSection.required}</span></label>
+                      <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder={t.contact.formSection.emailPlaceholder} required />
                     </div>
                     <div className="form-group">
-                      <label>Téléphone <span className="required">*</span></label>
-                      <input type="tel" name="telephone" value={formData.telephone} onChange={handleChange} placeholder="06 XX XX XX XX" required />
+                      <label>{t.contact.formSection.phone} <span className="required">{t.contact.formSection.required}</span></label>
+                      <input type="tel" name="telephone" value={formData.telephone} onChange={handleChange} placeholder={t.contact.formSection.phonePlaceholder} required />
                     </div>
                   </div>
 
                   <div className="form-group">
-                    <label>Type de visa <span className="required">*</span></label>
+                    <label>{t.contact.formSection.visaType} <span className="required">{t.contact.formSection.required}</span></label>
                     <select name="typeVisa" value={formData.typeVisa} onChange={handleChange} required>
-                      <option value="">Sélectionnez le type de visa</option>
-                      <option value="Tourisme">Visa Tourisme</option>
-                      <option value="Études & Langues">Visa Études & Langues</option>
-                      <option value="Travail">Visa Travail</option>
-                      <option value="Regroupement Familial">Regroupement Familial</option>
-                      <option value="Médical">Visa Médical</option>
-                      <option value="Arabie Saoudite">Arabie Saoudite</option>
-                      <option value="Chine">Chine</option>
-                      <option value="Autre">Autre demande</option>
+                      <option value="">{t.contact.formSection.visaTypePlaceholder}</option>
+                      <option value="Tourisme">{t.contact.formSection.visaTypes.tourism}</option>
+                      <option value="Études & Langues">{t.contact.formSection.visaTypes.studies}</option>
+                      <option value="Travail">{t.contact.formSection.visaTypes.work}</option>
+                      <option value="Regroupement Familial">{t.contact.formSection.visaTypes.family}</option>
+                      <option value="Médical">{t.contact.formSection.visaTypes.medical}</option>
+                      <option value="Arabie Saoudite">{t.contact.formSection.visaTypes.saudi}</option>
+                      <option value="Chine">{t.contact.formSection.visaTypes.china}</option>
+                      <option value="Autre">{t.contact.formSection.visaTypes.other}</option>
                     </select>
                   </div>
 
                   <div className="form-group">
-                    <label>Message <span className="required">*</span></label>
-                    <textarea name="message" value={formData.message} onChange={handleChange} placeholder="Décrivez votre projet et vos besoins..." required></textarea>
+                    <label>{t.contact.formSection.message} <span className="required">{t.contact.formSection.required}</span></label>
+                    <textarea name="message" value={formData.message} onChange={handleChange} placeholder={t.contact.formSection.messagePlaceholder} required></textarea>
                   </div>
 
                   <button type="submit" className="submit-btn">
-                    <span>Envoyer le message</span>
+                    <span>{t.contact.formSection.submitButton}</span>
                     <FaPaperPlane />
                   </button>
                 </form>

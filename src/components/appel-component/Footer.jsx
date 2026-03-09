@@ -4,26 +4,11 @@ import {
   FaPhone, FaEnvelope, FaMapMarkerAlt, FaWhatsapp, FaInstagram,
   FaClock, FaArrowRight, FaGlobe, FaCheckCircle
 } from 'react-icons/fa';
+import { useTranslation } from '../../hooks/useTranslation';
 
 /* ══════════════════════════════════════
-   DATA
+   DATA - Now using translations
 ══════════════════════════════════════ */
-const QUICK_LINKS = [
-  { label: "Accueil", path: "/" },
-  { label: "À propos", path: "/a-propos" },
-  { label: "Services", path: "/services" },
-  { label: "Rendez-vous", path: "/rendez-vous" },
-  { label: "Contact", path: "/contact" }
-];
-
-const SERVICES_LINKS = [
-  "Visa Tourisme",
-  "Visa Études & Langues",
-  "Visa Travail",
-  "Regroupement Familial",
-  "Visa Médical",
-  "Arabie Saoudite & Chine"
-];
 
 /* ══════════════════════════════════════
    CSS
@@ -366,6 +351,25 @@ const css = `
 ══════════════════════════════════════ */
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const t = useTranslation();
+
+  // Data arrays using translations
+  const QUICK_LINKS = [
+    { label: t.footer.navigation.home, path: "/" },
+    { label: t.footer.navigation.about, path: "/a-propos" },
+    { label: t.footer.navigation.services, path: "/services" },
+    { label: t.footer.navigation.appointment, path: "/rendez-vous" },
+    { label: t.footer.navigation.contact, path: "/contact" }
+  ];
+
+  const SERVICES_LINKS = [
+    t.footer.services.tourism,
+    t.footer.services.studies,
+    t.footer.services.work,
+    t.footer.services.family,
+    t.footer.services.medical,
+    t.footer.services.saudiChina
+  ];
 
   return (
     <>
@@ -383,8 +387,7 @@ export default function Footer() {
             <div className="footer-about">
               <h3>DS <span className="accent">Office</span></h3>
               <p className="footer-tagline">
-                Plus de 10 ans d'expérience dans l'accompagnement de vos démarches de visa. 
-                L'élite de l'accompagnement avec un taux de réussite de 98%.
+                {t.footer.about.tagline}
               </p>
               <div className="footer-social">
                 <a href="https://www.instagram.com/ds.office.maroc/" target="_blank" rel="noopener noreferrer" className="social-link">
@@ -401,7 +404,7 @@ export default function Footer() {
 
             {/* NAVIGATION */}
             <div className="footer-column">
-              <h4>Navigation</h4>
+              <h4>{t.footer.navigation.title}</h4>
               <div className="footer-links">
                 {QUICK_LINKS.map((link, i) => (
                   <Link key={i} to={link.path} className="footer-link">
@@ -414,7 +417,7 @@ export default function Footer() {
 
             {/* SERVICES */}
             <div className="footer-column">
-              <h4>Nos services</h4>
+              <h4>{t.footer.services.title}</h4>
               <div className="footer-links">
                 {SERVICES_LINKS.map((service, i) => (
                   <Link key={i} to="/services" className="footer-link">
@@ -427,12 +430,12 @@ export default function Footer() {
 
             {/* CONTACT */}
             <div className="footer-column">
-              <h4>Contact</h4>
+              <h4>{t.footer.contactSection.title}</h4>
               
               <div className="footer-contact-item">
                 <FaPhone />
                 <div>
-                  <div className="contact-label">Téléphone</div>
+                  <div className="contact-label">{t.footer.contactSection.phoneLabel}</div>
                   <a href="tel:+212653277203">06 53 27 72 03</a>
                 </div>
               </div>
@@ -440,7 +443,7 @@ export default function Footer() {
               <div className="footer-contact-item">
                 <FaWhatsapp />
                 <div>
-                  <div className="contact-label">WhatsApp</div>
+                  <div className="contact-label">{t.footer.contactSection.whatsappLabel}</div>
                   <a href="https://wa.me/212653633280" target="_blank" rel="noopener noreferrer">
                     06 53 63 32 80
                   </a>
@@ -450,7 +453,7 @@ export default function Footer() {
               <div className="footer-contact-item">
                 <FaEnvelope />
                 <div>
-                  <div className="contact-label">Email</div>
+                  <div className="contact-label">{t.footer.contactSection.emailLabel}</div>
                   <a href="mailto:info@dsoffice.ma">info@dsoffice.ma</a>
                 </div>
               </div>
@@ -458,11 +461,11 @@ export default function Footer() {
               <div className="footer-contact-item">
                 <FaMapMarkerAlt />
                 <div>
-                  <div className="contact-label">Adresse</div>
+                  <div className="contact-label">{t.footer.contactSection.addressLabel}</div>
                   <div>
-                    36, Boulevard d'Anfa<br />
-                    Résidence ANAFE A, 7ème étage<br />
-                    Casablanca, Morocco
+                    {t.footer.contactSection.addressLine1}<br />
+                    {t.footer.contactSection.addressLine2}<br />
+                    {t.footer.contactSection.addressLine3}
                   </div>
                 </div>
               </div>
@@ -470,10 +473,10 @@ export default function Footer() {
               <div className="footer-contact-item">
                 <FaClock />
                 <div>
-                  <div className="contact-label">Horaires</div>
+                  <div className="contact-label">{t.footer.contactSection.hoursLabel}</div>
                   <div>
-                    Lun-Ven: 9h-18h<br />
-                    Sam: 9h-13h
+                    {t.footer.contactSection.weekdays}<br />
+                    {t.footer.contactSection.saturday}
                   </div>
                 </div>
               </div>
@@ -486,12 +489,12 @@ export default function Footer() {
         <div className="footer-bottom">
           <div className="footer-bottom-content">
             <div className="copyright">
-              © <span className="year">{currentYear}</span> DS Office. Tous droits réservés.
+              © <span className="year">{currentYear}</span> DS Office. {t.footer.bottom.copyright}
             </div>
             <div className="footer-bottom-links">
-              <Link to="/a-propos">À propos</Link>
-              <Link to="/services">Services</Link>
-              <Link to="/contact">Contact</Link>
+              <Link to="/a-propos">{t.footer.navigation.about}</Link>
+              <Link to="/services">{t.footer.navigation.services}</Link>
+              <Link to="/contact">{t.footer.navigation.contact}</Link>
             </div>
           </div>
         </div>

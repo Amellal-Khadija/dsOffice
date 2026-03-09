@@ -4,6 +4,7 @@ import {
   FaFileAlt, FaWhatsapp, FaPaperPlane, FaMapMarkerAlt
 } from 'react-icons/fa';
 import { useTheme } from '../../context/ThemeContext';
+import { useTranslation } from '../../hooks/useTranslation';
 
 /* ══════════════════════════════════════
    HOOK — Scroll reveal
@@ -23,19 +24,8 @@ function useInView(threshold = 0.15) {
 }
 
 /* ══════════════════════════════════════
-   DATA
+   DATA - Now using translations
 ══════════════════════════════════════ */
-const BENEFITS = [
-  { icon: FaUserTie,   title: "Consultation personnalisée", desc: "Un expert dédié analyse votre dossier et vous conseille" },
-  { icon: FaShieldAlt, title: "Maximisez vos chances",      desc: "98% de taux de réussite avec notre accompagnement" },
-  { icon: FaFileAlt,   title: "Préparation complète",       desc: "Tous les documents vérifiés avant le dépôt" },
-  { icon: FaClock,     title: "Gain de temps",              desc: "Évitez les erreurs et les allers-retours inutiles" },
-];
-
-const VISA_TYPES = [
-  "Visa Tourisme", "Visa Études & Langues", "Visa Travail",
-  "Regroupement Familial", "Visa Médical", "Arabie Saoudite", "Chine", "Autre demande",
-];
 
 /* ══════════════════════════════════════
    CSS — scopé sur .rdv-root
@@ -401,6 +391,37 @@ function Reveal({ children, delay = 0 }) {
 export default function RendezVous() {
   const { isDark } = useTheme();
   const darkClass  = isDark ? 'dark-mode' : '';
+  const t = useTranslation();
+
+  // Data arrays using translations
+  const BENEFITS = [
+    { icon: FaUserTie,   title: t.appointment.benefits.consultation.title, desc: t.appointment.benefits.consultation.desc },
+    { icon: FaShieldAlt, title: t.appointment.benefits.maximize.title,      desc: t.appointment.benefits.maximize.desc },
+    { icon: FaFileAlt,   title: t.appointment.benefits.preparation.title,   desc: t.appointment.benefits.preparation.desc },
+    { icon: FaClock,     title: t.appointment.benefits.time.title,          desc: t.appointment.benefits.time.desc },
+  ];
+
+  const VISA_TYPES = [
+    t.appointment.form.visaTypes.tourism,
+    t.appointment.form.visaTypes.studies,
+    t.appointment.form.visaTypes.work,
+    t.appointment.form.visaTypes.family,
+    t.appointment.form.visaTypes.medical,
+    t.appointment.form.visaTypes.saudi,
+    t.appointment.form.visaTypes.china,
+    t.appointment.form.visaTypes.other,
+  ];
+
+  const TIME_SLOTS = [
+    t.appointment.form.timeSlots.slot1,
+    t.appointment.form.timeSlots.slot2,
+    t.appointment.form.timeSlots.slot3,
+    t.appointment.form.timeSlots.slot4,
+    t.appointment.form.timeSlots.slot5,
+    t.appointment.form.timeSlots.slot6,
+    t.appointment.form.timeSlots.slot7,
+    t.appointment.form.timeSlots.slot8,
+  ];
 
   const [formData, setFormData] = useState({
     nom: '', prenom: '', email: '', telephone: '',
@@ -426,13 +447,12 @@ export default function RendezVous() {
         {/* ══ HERO ══ */}
         <section className="rdv-hero">
           <div className="hero-content">
-            <div className="hero-tag">Prise de rendez-vous</div>
+            <div className="hero-tag">{t.appointment.hero.tag}</div>
             <h1 className="hero-title">
-              Réservez votre <span className="accent">consultation</span>
+              {t.appointment.hero.title} <span className="accent">{t.appointment.hero.titleAccent}</span>
             </h1>
             <p className="hero-subtitle">
-              Rencontrez nos experts en visa pour une analyse personnalisée de votre dossier. 
-              Prenez rendez-vous en quelques clics et maximisez vos chances de réussite.
+              {t.appointment.hero.description}
             </p>
           </div>
         </section>
@@ -460,13 +480,12 @@ export default function RendezVous() {
           <Reveal>
             <div className="form-container">
               <div className="section-header">
-                <div className="section-tag">Formulaire de rendez-vous</div>
+                <div className="section-tag">{t.appointment.formSection.tag}</div>
                 <h2 className="section-title">
-                  Planifiez votre <span className="accent">consultation</span>
+                  {t.appointment.formSection.title} <span className="accent">{t.appointment.formSection.titleAccent}</span>
                 </h2>
                 <p className="section-desc">
-                  Remplissez le formulaire ci-dessous et nous vous confirmerons votre 
-                  rendez-vous dans les plus brefs délais.
+                  {t.appointment.formSection.description}
                 </p>
               </div>
 
@@ -474,41 +493,41 @@ export default function RendezVous() {
                 <div className="info-box">
                   <div className="info-box-title">
                     <FaMapMarkerAlt />
-                    <span>Notre bureau à Casablanca</span>
+                    <span>{t.appointment.infoBox.title}</span>
                   </div>
                   <p className="info-box-text">
-                    36, Boulevard d'Anfa, Résidence ANAFE A, 7ème étage, Appt 75<br />
-                    Horaires : Lun-Ven 9h-18h | Sam 9h-13h
+                    {t.appointment.infoBox.address}<br />
+                    {t.appointment.infoBox.hours}
                   </p>
                 </div>
 
                 <form className="rdv-form" onSubmit={handleSubmit}>
                   <div className="form-row">
                     <div className="form-group">
-                      <label>Nom <span className="required">*</span></label>
-                      <input type="text" name="nom" value={formData.nom} onChange={handleChange} placeholder="Votre nom" required />
+                      <label>{t.appointment.form.lastName} <span className="required">{t.appointment.form.required}</span></label>
+                      <input type="text" name="nom" value={formData.nom} onChange={handleChange} placeholder={t.appointment.form.lastNamePlaceholder} required />
                     </div>
                     <div className="form-group">
-                      <label>Prénom <span className="required">*</span></label>
-                      <input type="text" name="prenom" value={formData.prenom} onChange={handleChange} placeholder="Votre prénom" required />
+                      <label>{t.appointment.form.firstName} <span className="required">{t.appointment.form.required}</span></label>
+                      <input type="text" name="prenom" value={formData.prenom} onChange={handleChange} placeholder={t.appointment.form.firstNamePlaceholder} required />
                     </div>
                   </div>
 
                   <div className="form-row">
                     <div className="form-group">
-                      <label>Email <span className="required">*</span></label>
-                      <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="votre@email.com" required />
+                      <label>{t.appointment.form.email} <span className="required">{t.appointment.form.required}</span></label>
+                      <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder={t.appointment.form.emailPlaceholder} required />
                     </div>
                     <div className="form-group">
-                      <label>Téléphone <span className="required">*</span></label>
-                      <input type="tel" name="telephone" value={formData.telephone} onChange={handleChange} placeholder="06 XX XX XX XX" required />
+                      <label>{t.appointment.form.phone} <span className="required">{t.appointment.form.required}</span></label>
+                      <input type="tel" name="telephone" value={formData.telephone} onChange={handleChange} placeholder={t.appointment.form.phonePlaceholder} required />
                     </div>
                   </div>
 
                   <div className="form-group">
-                    <label><FaFileAlt /> Type de visa <span className="required">*</span></label>
+                    <label><FaFileAlt /> {t.appointment.form.visaType} <span className="required">{t.appointment.form.required}</span></label>
                     <select name="typeVisa" value={formData.typeVisa} onChange={handleChange} required>
-                      <option value="">Sélectionnez le type de visa</option>
+                      <option value="">{t.appointment.form.visaTypePlaceholder}</option>
                       {VISA_TYPES.map((type) => (
                         <option key={type} value={type}>{type}</option>
                       ))}
@@ -517,7 +536,7 @@ export default function RendezVous() {
 
                   <div className="form-row">
                     <div className="form-group">
-                      <label><FaCalendarAlt /> Date préférée <span className="required">*</span></label>
+                      <label><FaCalendarAlt /> {t.appointment.form.date} <span className="required">{t.appointment.form.required}</span></label>
                       <input
                         type="date" name="datePreferee"
                         value={formData.datePreferee} onChange={handleChange}
@@ -525,45 +544,40 @@ export default function RendezVous() {
                       />
                     </div>
                     <div className="form-group">
-                      <label><FaClock /> Heure préférée <span className="required">*</span></label>
+                      <label><FaClock /> {t.appointment.form.time} <span className="required">{t.appointment.form.required}</span></label>
                       <select name="heurePreferee" value={formData.heurePreferee} onChange={handleChange} required>
-                        <option value="">Choisir un créneau</option>
-                        <option value="9h00 - 10h00">9h00 - 10h00</option>
-                        <option value="10h00 - 11h00">10h00 - 11h00</option>
-                        <option value="11h00 - 12h00">11h00 - 12h00</option>
-                        <option value="12h00 - 13h00">12h00 - 13h00</option>
-                        <option value="14h00 - 15h00">14h00 - 15h00</option>
-                        <option value="15h00 - 16h00">15h00 - 16h00</option>
-                        <option value="16h00 - 17h00">16h00 - 17h00</option>
-                        <option value="17h00 - 18h00">17h00 - 18h00</option>
+                        <option value="">{t.appointment.form.timePlaceholder}</option>
+                        {TIME_SLOTS.map((slot) => (
+                          <option key={slot} value={slot}>{slot}</option>
+                        ))}
                       </select>
                     </div>
                   </div>
 
                   <div className="form-group">
-                    <label>Message <span className="required">*</span></label>
+                    <label>{t.appointment.form.message} <span className="required">{t.appointment.form.required}</span></label>
                     <textarea
                       name="message" value={formData.message} onChange={handleChange}
-                      placeholder="Décrivez brièvement votre projet (destination, durée du séjour, situation actuelle...)"
+                      placeholder={t.appointment.form.messagePlaceholder}
                       required
                     />
                   </div>
 
                   <button type="submit" className="submit-btn">
                     <FaCheckCircle />
-                    <span>Confirmer le rendez-vous</span>
+                    <span>{t.appointment.form.submitButton}</span>
                     <FaPaperPlane />
                   </button>
                 </form>
 
                 {/* Contact CTA */}
                 <div className="contact-cta">
-                  <h3>Besoin d'une réponse immédiate ?</h3>
-                  <p>Contactez-nous directement par téléphone ou WhatsApp pour toute question urgente.</p>
+                  <h3>{t.appointment.contactCta.title}</h3>
+                  <p>{t.appointment.contactCta.description}</p>
                   <div className="contact-buttons">
                     <a href="https://wa.me/212653633280" target="_blank" rel="noopener noreferrer" className="contact-btn whatsapp">
                       <FaWhatsapp />
-                      <span>WhatsApp</span>
+                      <span>{t.appointment.contactCta.whatsapp}</span>
                     </a>
                   </div>
                 </div>

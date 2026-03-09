@@ -108,10 +108,11 @@ export const en = {
   // About Page
   about: {
     hero: {
-      tag: "Our Story",
-      title: "A decade of",
-      titleAccent: "excellence",
-      description: "For over 10 years, DS Office has successfully supported hundreds of clients in their international projects."
+      tag: "Who we are",
+      title: "DS Office —",
+      titleAccent: "More than 10 years",
+      titleEnd: "at your service",
+      description: "DS OFFICE offers complete support for all your visa applications, with personalized advice and professional assistance to facilitate your administrative procedures and make obtaining your visa simple and secure."
     },
     stats: {
       experience: "Years of experience",
@@ -120,18 +121,19 @@ export const en = {
       countries: "Countries covered"
     },
     story: {
-      tag: "Our Journey",
-      title: "A passion for",
-      titleAccent: "your projects",
-      p1: "Founded in Casablanca, DS Office was born from a passion for administrative support and international mobility consulting.",
-      p2: "Our team of experts, with over 10 years of experience, masters all aspects of visa procedures for Europe, Saudi Arabia and China.",
-      p3: "We believe that every project is unique. That's why we offer personalized support tailored to your situation.",
-      cta: "Contact Us"
+      tag: "Our story",
+      title: "Recognized expertise for over a decade",
+      paragraph1: "Founded more than 10 years ago in Casablanca, DS Office has become a reference in visa processing support and administrative assistance for your trips abroad.",
+      paragraph2: "Our passionate and experienced team puts its expertise at the service of your needs, whether for tourism, studies, work or family reunification. We guide you at every step with professionalism and transparency.",
+      paragraph3: "Thanks to our in-depth knowledge of consular procedures and our extensive network, we maximize your chances of approval and simplify your administrative procedures."
+    },
+    valuesSection: {
+      tag: "Our values",
+      title: "What sets us",
+      titleAccent: "apart",
+      description: "Strong values that guide our daily work and our relationship with our clients."
     },
     values: {
-      tag: "Our Values",
-      title: "What",
-      titleAccent: "defines us",
       trust: {
         title: "Trust",
         desc: "We build lasting relationships based on transparency and integrity."
@@ -149,18 +151,24 @@ export const en = {
         desc: "We are committed to making your international project a success."
       }
     },
-    servicesDetail: {
-      tag: "Our Services",
+    servicesSection: {
+      tag: "Our services",
       title: "Complete",
       titleAccent: "support",
-      items: {
-        tourism: "Tourist visa for France, Spain and Portugal",
-        studies: "Study visa with German courses offered locally in Casablanca",
-        work: "Work visa and family reunification",
-        medical: "Medical visas and treatment abroad",
-        saudiChina: "Saudi Arabia and China visas",
-        consulting: "Personalized advice and complete file preparation"
-      }
+      description: "From file preparation to obtaining your visa, we cover all your needs."
+    },
+    services: {
+      tourism: "Tourist visa for France, Spain and Portugal",
+      studies: "Study visa with German courses offered locally in Casablanca",
+      work: "Work visa and family reunification",
+      medical: "Medical visas and treatment abroad",
+      saudiChina: "Saudi Arabia and China visas",
+      consulting: "Personalized advice and complete file preparation"
+    },
+    cta: {
+      title: "Need a visa to travel?",
+      description: "Contact us today for personalized advice and discover how we can facilitate your visa procedures.",
+      button: "Contact us"
     }
   },
 
@@ -270,89 +278,74 @@ export const en = {
         title: "98% success rate",
         desc: "An exceptional approval rate"
       }
+    },
+    cta: {
+      title: "Ready to start your application?",
+      description: "Book an appointment today to benefit from our expertise and maximize your chances of obtaining a visa.",
+      button: "Book an appointment"
+    },
+    sectionHeader: {
+      tag: "Our services",
+      title: "Tailored",
+      titleAccent: "support",
+      description: "From file preparation to obtaining your visa, we handle all the steps to facilitate your procedures."
+    },
+    processSection: {
+      tag: "Our process",
+      title: "How we",
+      titleAccent: "work",
+      description: "A simple and transparent 4-step process to guarantee the best chances of obtaining your visa."
     }
   },
 
   // Contact Page
   contact: {
     hero: {
-      tag: "Contact Us",
-      title: "Let's talk about your",
-      titleAccent: "project",
-      description: "Our team is at your disposal to answer all your questions. Contact us by phone, WhatsApp, email or visit our office in Casablanca."
+      tag: "Contact us",
+      title: "We are here to",
+      titleAccent: "listen",
+      description: "Our team is available to answer all your questions and support you with your visa procedures."
     },
-    info: {
+    infoSection: {
+      title: "Contact information",
       phone: "Phone",
       whatsapp: "WhatsApp",
       email: "Email",
       instagram: "Instagram"
     },
-    form: {
-      title: "Send us a message",
-      name: "Full name",
-      phone: "Phone",
-      email: "Email",
-      visaType: "Visa type",
-      selectVisa: "Select a visa type",
-      message: "Your message",
-      messagePlaceholder: "Describe your project and needs...",
-      send: "Send via WhatsApp"
+    addressSection: {
+      title: "Our address",
+      label: "DS Office Casablanca",
+      street: "36, Boulevard d'Anfa",
+      building: "Résidence ANAFE A, 7th floor, Apt 75",
+      city: "Casablanca, Morocco"
     },
-    office: {
-      title: "Our Office",
-      address: "Address",
-      addressLine1: "36, Boulevard d'Anfa",
-      addressLine2: "Résidence ANAFE A, 7th floor, Apt 75",
-      addressLine3: "Casablanca, Morocco",
-      hours: "Opening Hours",
+    hoursSection: {
+      title: "Opening hours",
       weekdays: "Monday - Friday",
       weekdaysHours: "9:00 AM - 6:00 PM",
       saturday: "Saturday",
       saturdayHours: "9:00 AM - 1:00 PM",
       sunday: "Sunday",
       sundayHours: "Closed"
-    }
-  },
-
-  // Appointment Page
-  appointment: {
-    hero: {
-      tag: "Book Appointment",
-      title: "Reserve your",
-      titleAccent: "consultation",
-      description: "Book an appointment with our experts for a personalized consultation. We will analyze your file and advise you on the best strategy."
     },
-    benefits: {
-      consultation: {
-        title: "Personalized Consultation",
-        desc: "A dedicated expert analyzes your file and advises you"
-      },
-      maximize: {
-        title: "Maximize Your Chances",
-        desc: "98% success rate with our support"
-      },
-      preparation: {
-        title: "Complete Preparation",
-        desc: "All documents verified before submission"
-      },
-      time: {
-        title: "Time Saving",
-        desc: "Avoid errors and unnecessary back-and-forths"
-      }
-    },
-    form: {
-      title: "Appointment Form",
-      name: "Full name",
-      phone: "Phone number",
+    formSection: {
+      title: "Send us a message",
+      description: "Fill out the form below and we will respond to you as soon as possible.",
+      lastName: "Last name",
+      firstName: "First name",
       email: "Email",
-      visaType: "Desired visa type",
-      selectVisa: "Select visa type",
-      date: "Desired date",
-      time: "Desired time",
-      selectTime: "Select time",
-      message: "Message (optional)",
-      messagePlaceholder: "Briefly describe your situation...",
-      confirm: "Confirm Appointment",
+      phone: "Phone",
+      visaType: "Visa type",
+      message: "Message",
+      required: "*",
+      lastNamePlaceholder: "Your last name",
+      firstNamePlaceholder: "Your first name",
+      emailPlaceholder: "your@email.com",
+      phonePlaceholder: "06 XX XX XX XX",
+      visaTypePlaceholder: "Select visa type",
+      messagePlaceholder: "Describe your project and needs...",
+      submitButton: "Send message",
       visaTypes: {
         tourism: "Tourist Visa",
         studies: "Study & Language Visa",
@@ -363,11 +356,89 @@ export const en = {
         china: "China",
         other: "Other request"
       }
+    }
+  },
+
+  // Appointment Page
+  appointment: {
+    hero: {
+      tag: "Book an appointment",
+      title: "Book your",
+      titleAccent: "consultation",
+      description: "Meet our visa experts for a personalized analysis of your file. Book an appointment in just a few clicks and maximize your chances of success."
     },
-    whyUs: {
-      tag: "Why Choose Us",
-      title: "Excellence at every",
-      titleAccent: "step"
+    benefits: {
+      consultation: {
+        title: "Personalized consultation",
+        desc: "A dedicated expert analyzes your file and advises you"
+      },
+      maximize: {
+        title: "Maximize your chances",
+        desc: "98% success rate with our support"
+      },
+      preparation: {
+        title: "Complete preparation",
+        desc: "All documents verified before submission"
+      },
+      time: {
+        title: "Save time",
+        desc: "Avoid errors and unnecessary back and forth"
+      }
+    },
+    formSection: {
+      tag: "Appointment form",
+      title: "Schedule your",
+      titleAccent: "consultation",
+      description: "Fill out the form below and we will confirm your appointment as soon as possible."
+    },
+    infoBox: {
+      title: "Our office in Casablanca",
+      address: "36, Boulevard d'Anfa, Résidence ANAFE A, 7th floor, Apt 75",
+      hours: "Hours: Mon-Fri 9AM-6PM | Sat 9AM-1PM"
+    },
+    form: {
+      lastName: "Last name",
+      firstName: "First name",
+      email: "Email",
+      phone: "Phone",
+      visaType: "Visa type",
+      date: "Preferred date",
+      time: "Preferred time",
+      message: "Message",
+      required: "*",
+      lastNamePlaceholder: "Your last name",
+      firstNamePlaceholder: "Your first name",
+      emailPlaceholder: "your@email.com",
+      phonePlaceholder: "06 XX XX XX XX",
+      visaTypePlaceholder: "Select visa type",
+      timePlaceholder: "Choose a time slot",
+      messagePlaceholder: "Briefly describe your project (destination, length of stay, current situation...)",
+      submitButton: "Confirm appointment",
+      visaTypes: {
+        tourism: "Tourist Visa",
+        studies: "Study & Language Visa",
+        work: "Work Visa",
+        family: "Family Reunification",
+        medical: "Medical Visa",
+        saudi: "Saudi Arabia",
+        china: "China",
+        other: "Other request"
+      },
+      timeSlots: {
+        slot1: "9:00 AM - 10:00 AM",
+        slot2: "10:00 AM - 11:00 AM",
+        slot3: "11:00 AM - 12:00 PM",
+        slot4: "12:00 PM - 1:00 PM",
+        slot5: "2:00 PM - 3:00 PM",
+        slot6: "3:00 PM - 4:00 PM",
+        slot7: "4:00 PM - 5:00 PM",
+        slot8: "5:00 PM - 6:00 PM"
+      }
+    },
+    contactCta: {
+      title: "Need an immediate response?",
+      description: "Contact us directly by phone or WhatsApp for any urgent questions.",
+      whatsapp: "WhatsApp"
     }
   },
 
@@ -392,7 +463,7 @@ export const en = {
       contact: "Contact"
     },
     services: {
-      title: "Services",
+      title: "Our services",
       tourism: "Tourist Visa",
       studies: "Study & Language Visa",
       work: "Work Visa",
@@ -400,18 +471,24 @@ export const en = {
       medical: "Medical Visa",
       saudiChina: "Saudi Arabia & China"
     },
-    contact: {
+    contactSection: {
       title: "Contact",
-      address: "36 Bd d'Anfa, Résidence ANAFE A",
-      cityFloor: "7th floor, Apt 75, Casablanca",
-      phone: "Phone",
-      whatsapp: "WhatsApp",
-      email: "Email"
+      phoneLabel: "Phone",
+      whatsappLabel: "WhatsApp",
+      emailLabel: "Email",
+      addressLabel: "Address",
+      hoursLabel: "Hours",
+      addressLine1: "36, Boulevard d'Anfa",
+      addressLine2: "Résidence ANAFE A, 7th floor",
+      addressLine3: "Casablanca, Morocco",
+      weekdays: "Mon-Fri: 9AM-6PM",
+      saturday: "Sat: 9AM-1PM"
+    },
+    about: {
+      tagline: "Over 10 years of experience supporting your visa procedures. Elite support with a 98% success rate."
     },
     bottom: {
-      copyright: "© 2024 DS Office. All rights reserved.",
-      privacy: "Privacy Policy",
-      terms: "Terms of Use"
+      copyright: "All rights reserved."
     }
   }
 };
