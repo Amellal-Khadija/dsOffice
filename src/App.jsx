@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route } from 'react-router-dom';
+import ScrollToTop from "./components/ScrollToTop";
 import Menu from "./components/appel-component/Menu";
 import Footer from "./components/appel-component/Footer";
 import Accueil from "./components/pages/Accueil";
@@ -11,6 +12,7 @@ import Contact from "./components/pages/contact";
 export default function App() {
   return (
     <div className="">
+      <ScrollToTop />
       <Menu />
       <main>
         <Routes>
